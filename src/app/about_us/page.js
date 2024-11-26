@@ -5,6 +5,7 @@ import AboutUsSection from "../components/main/components/about_us_section";
 import VolunteersSection from "../components/main/components/volunteers_Section";
 import BlackShadeSection2 from "../components/main/components/blackshade_section2";
 import FaqSection from "../components/main/components/faq_section";
+import AboutUsContent from "../components/main/components/about_us_content";
 
 export default function AboutUsPage() {
     return (
@@ -13,7 +14,8 @@ export default function AboutUsPage() {
                 title={"About Us"}
                 links={[{ text: "About Us", href: "/about_us" }]}
             />
-            <AboutUsSection />
+            <AboutUsContent/>
+            {/* <AboutUsSection /> */}
             <VolunteersSection />
             <BlackShadeSection2 />
             <FaqSection />

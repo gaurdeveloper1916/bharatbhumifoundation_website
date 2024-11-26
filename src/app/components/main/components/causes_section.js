@@ -59,7 +59,7 @@ export default function CausesSection() {
                     button_color={"blue-600"}
                     read_more_link={"#a_ray_of_hope"}
                 />
-                <BlogCard2
+                {/* <BlogCard2
                     src={"/img/man_helping_poor_kids.jpg"}
                     title={"Dreams Unleashed"}
                     description={
@@ -69,7 +69,7 @@ export default function CausesSection() {
                     goal_value={30000}
                     button_color={"purple-600"}
                     read_more_link={"#dreams_unleashed"}
-                />
+                /> */}
             </div>
         </div>
     );
