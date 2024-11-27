@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import BlackShadeSection from "../components/main/components/blackshade_sections";
 import ReviewSection from "../components/main/components/review";
