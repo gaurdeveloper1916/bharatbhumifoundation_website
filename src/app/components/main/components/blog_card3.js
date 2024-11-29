@@ -25,29 +25,35 @@ export default function BlogCard3({
                     alt="Blog Image"
                     width={32 * 16}
                     height={32 * 9}
-                    className="w-[380px] h-[275px]"
+                    className="w-[250px] h-[200px]"
                 />
                 <div
                     className={`z-30 absolute bottom-0 left-0 flex flex-col justify-center items-center gap-6 rounded-tr-lg shadow-inner-lg shadow-${button_color}`}
                 >
-                    <div className={hovered ? "flex flex-col justify-center items-center gap-6" : "hidden"}>
+                    <div className={hovered ? "flex flex-col justify-center items-center gap-3" : "hidden"}>
                         <Google className={`rounded-full bg-red-600 w-8 h-8 p-2 text-white text-xl`} />
                         <Facebook className={`rounded-full bg-blue-600 w-8 h-8 p-2 text-white text-xl`} />
                         <Twitter className={`rounded-full bg-sky-500 w-8 h-8 p-2 text-white text-xl`} />
                     </div>
-                    <Share className={`text-white text-xl bg-${button_color} w-12 h-12 p-2 rounded-tr-lg`} />
+                    <Share className={`text-white text-xl bg-${button_color} w-10 h-10 p-2 rounded-tr-lg`} />
                 </div>
                 <div className={hovered ? `z-10 absolute left-0 top-0 w-full h-full bg-gradient-to-t from-${button_color} to-transparent` : "hidden"}></div>
             </div>
-            <hr className="h-4 w-full bg-transparent" />
-            <div
+            {/* <div
                 className={`flex flex-col justify-center items-center p-7 gap-1 bg-${button_color} w-full`}
             >
                 <h4 className="text-white text-xl font-extrabold capitalize">
                     {title}
                 </h4>
                 <p className="text-white text-base">Volunteer</p>
+            </div> */}
+            <div className=" py-3">
+            <h4 className="text-black text-center text-xl font-semibold capitalize">
+                    {title}
+                </h4>
+                <p className="text-black text-sm text-center">{description}</p>
             </div>
+          
         </div>
     );
 }

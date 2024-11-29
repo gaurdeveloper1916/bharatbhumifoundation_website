@@ -18,7 +18,7 @@ export default function AboutUsPage() {
             {/* <AboutUsSection /> */}
             <VolunteersSection />
             <BlackShadeSection2 />
-            <FaqSection />
+            {/* <FaqSection /> */}
         </BasePage>
     );
 }

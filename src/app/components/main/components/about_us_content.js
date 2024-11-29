@@ -13,14 +13,19 @@ export default function AboutUsContent() {
     ];
   
     return (
-      <div className="mx-8 py-4 ">
-        <ul className="space-y-6">
+      <div className="mx-8 py-4">
+        <h1 className="font-semibold py-4 text-2xl">Serving the elder cause for over four decades</h1>
+        <ul className="space-y-2">
           {dummyData.map((item, index) => (
             <li
               key={index}
-              className="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+              className=" "
             >
+              <div className="flex justify-center gap-4">
+              <span className="mt-1">{`${index+1}.`}</span>
               <p className="text-lg text-gray-700">{item}</p>
+              </div>
+      
             </li>
           ))}
         </ul>

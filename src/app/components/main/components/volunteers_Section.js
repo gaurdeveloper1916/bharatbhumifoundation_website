@@ -6,12 +6,12 @@ export default function VolunteersSection() {
     return (
         <div className="flex flex-col justify-center items-center w-full h-auto py-14 gap-4">
             <h4 className="text-xl font-bold text-red-600 capitalize text-center">
-                our volunteers
+                our Member
             </h4>
             <h2 className="flex flex-row flex-nowrap whitespace-nowrap justify-center items-center text-3xl font-bold text-black capitalize text-center">
-                meet with&nbsp;
+                Our&nbsp;
                 <span className="relative text-inherit">
-                    Volunteers
+                    Team Members
                     <Image
                         src={"/img/word_marker.png"}
                         alt="word_marker image"
@@ -29,19 +29,36 @@ export default function VolunteersSection() {
             <div className="flex flex-row flex-wrap justify-center items-center gap-5">
                 <BlogCard3
                     src={"/img/person7.jpeg"}
-                    title={"Prabhakar Roy"}
+                    title={"Amit bansal"}
+                    description={'Chairmen'}
                     button_color={"red-600"}
                 />
                 <BlogCard3
                     src={"/img/person8.jpeg"}
-                    title={"Prabhakar Roy"}
+                    title={"Sanjay verma"}
+                    description={"President"}
                     button_color={"green-600"}
                 />
                 <BlogCard3
                     src={"/img/person6.jpeg"}
-                    title={"Prabhakar Roy"}
+                    title={"Salim"}
+                    description={"Vice president"}
                     button_color={"blue-600"}
                 />
+              
+                <BlogCard3
+                    src={"/img/person6.jpeg"}
+                    title={"Inderjit singh"}
+                    description={"Chief manager"}
+                    button_color={"blue-600"}
+                />
+                <BlogCard3
+                    src={"/img/person6.jpeg"}
+                    title={"Surender singh"}
+                    description={"Chief manager"}
+                    button_color={"blue-600"}
+                />
+                
             </div>
         </div>
     );
