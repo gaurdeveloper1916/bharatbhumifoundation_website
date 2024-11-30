@@ -22,7 +22,7 @@ export default function BlogCard2({
                     alt="Blog Image"
                     width={32 * 16}
                     height={32 * 9}
-                    className="w-[380px] h-[275px] rounded-lg"
+                    className="w-[380px] h-[200px] rounded-lg"
                 />
             </div>
             <div className="flex flex-col justify-start items-start p-7 pt-0 gap-7">

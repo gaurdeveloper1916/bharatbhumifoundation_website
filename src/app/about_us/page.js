@@ -1,3 +1,5 @@
+import dynamic from 'next/dynamic';
+
 import React from "react";
 import BasePage from "../components/base";
 import BreadCrumb from "../components/main/components/breadcrumb";
@@ -6,6 +8,7 @@ import VolunteersSection from "../components/main/components/volunteers_Section"
 import BlackShadeSection2 from "../components/main/components/blackshade_section2";
 import FaqSection from "../components/main/components/faq_section";
 import AboutUsContent from "../components/main/components/about_us_content";
+const MissionPage = dynamic(() => import('../components/main/components/our_mission'), { ssr: false });
 
 export default function AboutUsPage() {
     return (
@@ -16,9 +19,10 @@ export default function AboutUsPage() {
             />
             <AboutUsContent/>
             {/* <AboutUsSection /> */}
+            <MissionPage/>
             <VolunteersSection />
             <BlackShadeSection2 />
-            {/* <FaqSection /> */}
+            <FaqSection />
         </BasePage>
     );
 }

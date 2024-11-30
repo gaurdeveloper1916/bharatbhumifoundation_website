@@ -25,7 +25,7 @@ export default function BlogCard3({
                     alt="Blog Image"
                     width={32 * 16}
                     height={32 * 9}
-                    className="w-[250px] h-[200px]"
+                    className="w-[250px] h-[220px]"
                 />
                 <div
                     className={`z-30 absolute bottom-0 left-0 flex flex-col justify-center items-center gap-6 rounded-tr-lg shadow-inner-lg shadow-${button_color}`}

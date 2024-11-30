@@ -47,7 +47,7 @@ export default function VolunteersSection() {
                 />
               
                 <BlogCard3
-                    src={"/img/person6.jpeg"}
+                    src={"/img/rocky_img.jpg"}
                     title={"Inderjit singh"}
                     description={"Chief manager"}
                     button_color={"blue-600"}
