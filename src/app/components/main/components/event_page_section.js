@@ -79,7 +79,49 @@ export default function EventPageSection({ title }) {
                         </div>
                     );
                 })}
-                <form className="flex flex-col justify-start items-start gap-6 w-full">
+              
+            </div>
+
+            <div className="flex flex-col justify-center-items-center p-6 flex-grow max-w-lg">
+                {/* <div className="flex flex-col justify-start items-start p-6 bg-blue-50 bg-opacity-30 rounded-lg border gap-4">
+                    <h3 className="text-xl font-semibold w-11/12 border-l-4 border-red-600 px-2">
+                        Event Info
+                    </h3>
+                    <div className="w-11/12 flex flex-row flex-nowrap justify-start items-start gap-4 pl-2">
+                        <Calendar3 className="text-2xl text-red-600" />
+                        <div className="flex flex-col justify-start items-start gap-1">
+                            <h4 className="text-base font-semibold text-slate-800">
+                                Event Date & Time
+                            </h4>
+                            <p className="text-xs text-slate-500">
+                                30th october, 2022 09:00am - 5:00pm
+                            </p>
+                        </div>
+                    </div>
+                    <div className="w-11/12 flex flex-row flex-nowrap justify-start items-start gap-4 pl-2">
+                        <GeoAltFill className="text-2xl text-red-600" />
+                        <div className="flex flex-col justify-start items-start gap-1">
+                            <h4 className="text-base font-semibold text-slate-800">
+                                Event Venue
+                            </h4>
+                            <p className="text-xs text-slate-500">
+                                Sector-37, Greater Kailash, Himalyas
+                            </p>
+                        </div>
+                    </div>
+                    <div className="w-11/12 flex flex-row flex-nowrap justify-start items-start gap-4 pl-2">
+                        <TelephoneFill className="text-2xl text-red-600" />
+                        <div className="flex flex-col justify-start items-start gap-1">
+                            <h4 className="text-base font-semibold text-slate-800">
+                                Contact Number
+                            </h4>
+                            <p className="text-xs text-slate-500">
+                                (+91) 8766369991
+                            </p>
+                        </div>
+                    </div>
+                </div> */}
+                  <form className="flex flex-col justify-start items-start gap-6 w-full">
                     <div className="flex flex-row flex-wrap m-1 w-full gap-7 sm:gap-0">
                         <div className="flex flex-col justify-start items-start w-full sm:w-1/2">
                             <label
@@ -154,47 +196,42 @@ export default function EventPageSection({ title }) {
                         />
                     </div>
                 </form>
-            </div>
+                <div className="bg-gray-100 py-10 px-5">
+  <div className="max-w-6xl mx-auto">
+    {/* Heading */}
+    <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">Charity Blog Highlights</h1>
 
-            <div className="flex flex-col justify-center-items-center p-6 flex-grow max-w-lg">
-                <div className="flex flex-col justify-start items-start p-6 bg-blue-50 bg-opacity-30 rounded-lg border gap-4">
-                    <h3 className="text-xl font-semibold w-11/12 border-l-4 border-red-600 px-2">
-                        Event Info
-                    </h3>
-                    <div className="w-11/12 flex flex-row flex-nowrap justify-start items-start gap-4 pl-2">
-                        <Calendar3 className="text-2xl text-red-600" />
-                        <div className="flex flex-col justify-start items-start gap-1">
-                            <h4 className="text-base font-semibold text-slate-800">
-                                Event Date & Time
-                            </h4>
-                            <p className="text-xs text-slate-500">
-                                30th october, 2022 09:00am - 5:00pm
-                            </p>
-                        </div>
-                    </div>
-                    <div className="w-11/12 flex flex-row flex-nowrap justify-start items-start gap-4 pl-2">
-                        <GeoAltFill className="text-2xl text-red-600" />
-                        <div className="flex flex-col justify-start items-start gap-1">
-                            <h4 className="text-base font-semibold text-slate-800">
-                                Event Venue
-                            </h4>
-                            <p className="text-xs text-slate-500">
-                                Sector-37, Greater Kailash, Himalyas
-                            </p>
-                        </div>
-                    </div>
-                    <div className="w-11/12 flex flex-row flex-nowrap justify-start items-start gap-4 pl-2">
-                        <TelephoneFill className="text-2xl text-red-600" />
-                        <div className="flex flex-col justify-start items-start gap-1">
-                            <h4 className="text-base font-semibold text-slate-800">
-                                Contact Number
-                            </h4>
-                            <p className="text-xs text-slate-500">
-                                (+91) 8766369991
-                            </p>
-                        </div>
-                    </div>
-                </div>
+    {/* Content Grid */}
+    <div className="grid gap-2">
+      {/* Impact Stories */}
+      <div className="bg-white shadow-lg rounded-lg p-6">
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">Impact Stories</h2>
+        <p className="text-xs text-slate-500">
+          Share real-life success stories of individuals or communities positively affected by your NGO's efforts. Include testimonials, images, or videos to make the stories more relatable.
+        </p>
+      </div>
+
+      {/* Volunteering Experiences */}
+      <div className="bg-white shadow-lg rounded-lg p-6">
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">Volunteering Experiences</h2>
+        <p className="text-xs text-slate-500">
+          Highlight the experiences of volunteers and the difference they made. Share behind-the-scenes insights to encourage more people to volunteer.
+        </p>
+      </div>
+
+      {/* Mission and Vision */}
+      <div className="bg-white shadow-lg rounded-lg p-6">
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">Mission and Vision</h2>
+        <p className="text-xs text-slate-500">
+          Clearly state your NGO's goals, mission, and long-term vision. Explain how your initiatives align with addressing social issues.
+        </p>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
             </div>
         </div>
     );

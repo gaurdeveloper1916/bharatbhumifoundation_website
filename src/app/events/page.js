@@ -92,8 +92,8 @@ export default function EventsPage() {
     return (
         <BasePage>
             <BreadCrumb
-                title={"Our Events"}
-                links={[{ text: "Events", href: "/events" }]}
+                title={"Our Blogs"}
+                links={[{ text: "Blogs", href: "/events" }]}
             />
             <div className="flex flex-row flex-wrap justify-evenly items-center p-1 sm:p-4 py-12">
                 {defaultValue.map((e, index) => {

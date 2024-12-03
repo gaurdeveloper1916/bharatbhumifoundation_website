@@ -259,9 +259,9 @@ export default function PaginationEventsPage({ params }) {
     return (
         <BasePage>
             <BreadCrumb
-                title={"Our Events"}
+                title={"Our Blogs"}
                 links={[
-                    { text: "Events", href: "/events" },
+                    { text: "Blog", href: "/events" },
                     { text: `Page ${value}`, href: `/events/${value}` },
                 ]}
             />
