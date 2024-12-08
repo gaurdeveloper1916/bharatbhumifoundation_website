@@ -62,13 +62,13 @@ export default function AboutUsSection() {
                         </div>
                     </div>
                 </div>
-                <Button
+                {/* <Button
                     href="/causes"
                     text="view all causes"
                     hovered
                     color="red-600"
                     className="ml-3 scale-110"
-                />
+                /> */}
             </div>
         </div>
     );

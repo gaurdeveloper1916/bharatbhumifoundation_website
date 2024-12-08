@@ -35,7 +35,7 @@ export default function Footer() {
                         more capable of driving initiatives that have a lasting
                         impact.
                     </p>
-                    <div className="flex flex-row flex-nowrap gap-4 my-6">
+                    {/* <div className="flex flex-row flex-nowrap gap-4 my-6">
                         <Button
                             href="https://github.com/ankurjaiswalofficial"
                             text={<Github />}
@@ -54,24 +54,24 @@ export default function Footer() {
                             color="gray-700"
                             className="rounded-full py-5 hover:bg-red-600"
                         />
-                    </div>
+                    </div> */}
                 </div>
                 <div className="flex flex-col justify-start items-start px-4 gap-4 w-40">
                     <h4 className="text-xl font-bold">About</h4>
                     <ul className="flex flex-col justify-start items-start gap-2 h-full">
                         {listItemHandler("Home", "/")}
-                        {listItemHandler("Donation", "/donate_now")}
+                        {/* {listItemHandler("Donation", "/donate_now")} */}
                         {listItemHandler("About Us", "/about_us")}
-                        {listItemHandler("Event", "/events")}
+                        {listItemHandler("Blogs", "/events")}
                     </ul>
                 </div>
                 <div className="flex flex-col justify-start items-start px-4 gap-4 w-40">
                     <h4 className="text-xl font-bold">Quick Links</h4>
                     <ul className="flex flex-col justify-start items-start gap-2 h-full">
-                        {listItemHandler("Causes", "/causes")}
+                        {/* {listItemHandler("Causes", "/causes")} */}
                         {listItemHandler("About", "/about_us")}
                         {listItemHandler("New campaign", "/events")}
-                        {listItemHandler("Site map", "#")}
+                        {/* {listItemHandler("Site map", "#")} */}
                         {listItemHandler(
                             "Stories",
                             "/events/1/supporting_hope_a_charity_gala"
@@ -82,9 +82,9 @@ export default function Footer() {
                 <div className="flex flex-col justify-start items-start px-4 gap-4 w-40">
                     <h4 className="text-xl font-bold">Explore</h4>
                     <ul className="flex flex-col justify-start items-start gap-2 h-full">
-                        {listItemHandler("Donate", "/donate_now")}
+                        {/* {listItemHandler("Donate", "/donate_now")} */}
                         {listItemHandler("Campaign", "/events/2")}
-                        {listItemHandler("Fundraise", "/causes/2")}
+                        {/* {listItemHandler("Fundraise", "/causes/2")} */}
                         {listItemHandler("Volunteers", "/volunteers")}
                         {listItemHandler("Sponsors", "/volunteers")}
                     </ul>
@@ -141,7 +141,7 @@ export default function Footer() {
             </div>
             <div className="w-full flex flex-row border-x-4 border-red-600 bg-gray-950">
                 <h4 className="text-sm text-center w-full text-white font-semibold">
-                    &copy; Copyright 2023 All Rights Reserved By BHUMI SEWA FOUNDATION
+                    &copy; Copyright 2024 All Rights Reserved By BHUMI SEWA FOUNDATION
                 </h4>
             </div>
         </footer>

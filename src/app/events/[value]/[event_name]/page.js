@@ -57,9 +57,9 @@ export default function EventsDetailPage({ params }) {
     return (
         <BasePage>
             <BreadCrumb
-                title={"Our Events"}
+                title={"Our Blog"}
                 links={[
-                    { text: "Events", href: "/events" },
+                    { text: "Blog", href: "/events" },
                     { text: `Page ${value}`, href: `/events/${value}` },
                     {
                         text: removeUnderscoresAndCapitalize(event_name),

@@ -7,6 +7,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        floating: "floating 2s ease-in-out infinite",
+      },
+      keyframes: {
+        floating: {
+          "0%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+          "100%": { transform: "translateY(0)" },
+        },
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
