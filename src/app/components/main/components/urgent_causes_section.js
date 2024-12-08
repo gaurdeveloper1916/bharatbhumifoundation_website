@@ -11,25 +11,15 @@ export default function UrgentCausesSection() {
                     Urgent causes
                 </h4>
                 <h2 className="flex flex-row flex-wrap justify-start items-start text-3xl font-bold text-black capitalize">
-                    Helping more than&nbsp;
+                Empowering 6,000
                     <span className="relative text-inherit">
-                        6K Children
-                        <Image
-                            src={"/img/word_marker.png"}
-                            alt="word_marker image"
-                            width={32 * 16}
-                            height={32 * 9}
-                            className="w-full h-8 absolute -bottom-5 left-0"
-                        />
+                    children every year 
+                        
                     </span>
-                    &nbsp;Every Year
+                with education and care.
                 </h2>
                 <p className="text-sm text-gray-500 w-10/12">
-                    BigHearts is a vast global crowdfunding network that brings
-                    together nonprofits, donors, and businesses from around the
-                    world. Our mission is to support nonprofits in their crucial
-                    work, fostering positive change in diverse communities
-                    across the globe.
+                Join us in our journey to make the world a better place. Whether you want to donate, volunteer, or simply spread the word, every effort counts
                 </p>
                 <Button
                     href="/causes"

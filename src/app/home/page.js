@@ -18,14 +18,14 @@ export default function MainHome() {
     return (
         <BasePage>
             <BlackShadeSection />
-            <UrgentCausesSection />
+            {/* <UrgentCausesSection /> */}
             <AboutUsSection />
             <ChooseUsSection />
-            <CausesSection />
-            <UpcomingEventsSection />
+            {/* <CausesSection /> */}
+            {/* <UpcomingEventsSection /> */}
             <VolunteersFormSection />
-            <VolunteersSection />
-            <ReviewSection />
+            {/* <VolunteersSection /> */}
+            {/* <ReviewSection /> */}
             <FaqSection />
             <BlackShadeSection2 />
             <BlogPostSection />
