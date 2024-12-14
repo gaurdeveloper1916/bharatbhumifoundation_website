@@ -27,15 +27,14 @@ export default function Header() {
 
     return (
         <header
-            className={`${headerFixed ? "sticky top-0 left-0" : ""} w-full h-20 max-[745px]:h-16 flex justify-center items-center px-4 z-50 transition-all duration-300 ease-in-out ${scrolled ? "bg-black" : "bg-white"}`}
+            className={`${headerFixed ? "sticky top-0 left-0" : ""} w-full h-24  border border-gray-300 max-[745px]:h-16 flex  justify-center items-center px-4 z-50 transition-all duration-300 ease-in-out ${scrolled ? "bg-white" : "bg-white"}`}
         >
-            <div className="relative w-full h-20 max-[745px]:h-16 flex justify-between items-center lg:px-6 ">
+            <div className="relative w-full h-20 max-[745px]:h-20 flex justify-between items-center lg:px-6 ">
                 {/* Logo */}
                 <Link href="/">
                     <div className="flex items-center">
-                        <h4 className={`lg:text-2xl text-lg font-bold ${scrolled ? "text-white" : "text-black"}`}>
-                            BHUMI SEWA FOUNDATION
-                        </h4>
+                    <img className="w-24 px-1" src="/img/logo-final.png ">
+                    </img>
                     </div>
                 </Link>
 
@@ -43,24 +42,24 @@ export default function Header() {
                 <div className="hidden md:flex items-center space-x-8">
                     <nav className="flex items-center space-x-6">
                         <Link href="/">
-                            <h4 className={`text-lg font-medium ${scrolled ? "text-white" : "text-black"}  hover:text-orange-600 border-b-2 border-transparent hover:border-orange-600`}>
+                            <h4 className={`text-sm font-medium ${scrolled ? "text-black" : "text-black"}  hover:text-orange-600 border-b-2 border-transparent hover:border-orange-600`}>
                                 Home
                             </h4>
                         </Link>
                         <Link href="/events">
-                        <h4 className={`text-lg font-medium ${scrolled ? "text-white" : "text-black"}  hover:text-orange-600 border-b-2 border-transparent hover:border-orange-600`}>
+                        <h4 className={`text-sm font-medium ${scrolled ? "text-black" : "text-black"}  hover:text-orange-600 border-b-2 border-transparent hover:border-orange-600`}>
                         Blogs
                             </h4>
                             
                         </Link>
                         <Link href="/about_us">
-                        <h4 className={`text-lg font-medium ${scrolled ? "text-white" : "text-black"}  hover:text-orange-600 border-b-2 border-transparent hover:border-orange-600`}>
+                        <h4 className={`text-sm font-medium ${scrolled ? "text-black" : "text-black"}  hover:text-orange-600 border-b-2 border-transparent hover:border-orange-600`}>
                         About Us
                             </h4>
                            
                         </Link>
                         <Link href="/contact_us">
-                        <h4 className={`text-lg font-medium ${scrolled ? "text-white" : "text-black"} hover:text-orange-600 border-b-2 border-transparent hover:border-orange-600`}>
+                        <h4 className={`text-sm font-medium ${scrolled ? "text-black" : "text-black"} hover:text-orange-600 border-b-2 border-transparent hover:border-orange-600`}>
                         Contact Us
                             </h4>
                           

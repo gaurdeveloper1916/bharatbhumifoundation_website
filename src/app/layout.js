@@ -10,12 +10,12 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  const GA_TRACKING_ID = 'G-JVH5JWNXF5';
+  // const GA_TRACKING_ID = 'G-JVH5JWNXF5';
 
   return (
     <html lang="en">
       <head>
-        <script
+        {/* <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
         />
@@ -28,12 +28,12 @@ export default function RootLayout({ children }) {
               gtag('config', '${GA_TRACKING_ID}');
             `,
           }}
-        />
+        /> */}
         <script async src="https://cdn.tailwindcss.com"></script>
       </head>
       <body className={String(inter.className) + " w-full h-full"}>
 
-        <Analytics />
+        {/* <Analytics /> */}
         {children}</body>
     </html>
   )
