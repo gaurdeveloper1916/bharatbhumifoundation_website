@@ -51,7 +51,7 @@ export default function BlogCard3({
             <h4 className="text-black text-center text-xl font-semibold capitalize">
                     {title}
                 </h4>
-                <p className="text-black text-sm text-center">{description}</p>
+                <p className="font-bold text-sm text-center text-red-600">{description}</p>
             </div>
           
         </div>

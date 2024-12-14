@@ -28,20 +28,20 @@ export default function VolunteersSection() {
             </p>
             <div className="flex flex-row flex-wrap justify-center items-center gap-5">
                 <BlogCard3
-                    src={"/img/person7.jpeg"}
-                    title={"Amit bansal"}
-                    description={'Chairmen'}
+                    src={"/img/one.jpg"}
+                    title={"Sanjay"}
+                    description={'Director'}
                     button_color={"red-600"}
                 />
                 <BlogCard3
-                    src={"/img/person8.jpeg"}
-                    title={"Sanjay verma"}
-                    description={"President"}
+                    src={"/img/two.jpg"}
+                    title={"Hira "}
+                    description={"Member"}
                     button_color={"green-600"}
                 />
                 <BlogCard3
-                    src={"/img/person6.jpeg"}
-                    title={"Salim"}
+                    src={"/img/three.jpg"}
+                    title={"Ram bilal"}
                     description={"Vice president"}
                     button_color={"blue-600"}
                 />
