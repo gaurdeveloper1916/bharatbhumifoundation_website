@@ -9,8 +9,10 @@ const Analytics = () => {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const url = `${pathname}${searchParams.toString() ? `?${searchParams}` : ''}`;
-    gtag.pageview(url);
+    if (typeof window.gtag === 'function') {
+      const url = `${pathname}${searchParams ? `?${searchParams}` : ''}`;
+      gtag.pageview(url);
+    }
   }, [pathname, searchParams]);
 
   return null;
