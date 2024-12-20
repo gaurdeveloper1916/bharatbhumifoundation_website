@@ -1,185 +1,247 @@
-"use client";
+'use client'
 import React, { useState } from "react";
-import { MdCurrencyRupee } from "react-icons/md";
-import Button from "../../button";
 
 const DonateNowFormSection = () => {
-  const [amount, setAmount] = useState(50);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [mobileNumber, setMobileNumber] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState("");
-  const [streetAddress, setStreetAddress] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [paymentMethod, setPaymentMethod] = useState("credit-card");
+  const [donationAmount, setDonationAmount] = useState("100");
+  const [customAmount, setCustomAmount] = useState("");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    mobile: "",
+    address: "",
+    city: "",
+    state: "",
+    pinCode: "",
+  });
+  const [notify, setNotify] = useState(false);
 
-  const [errors, setErrors] = useState({});
+  const RUPEES = [
+    { price: "100" },
+    { price: "200" },
+    { price: "500" },
+    { price: "1000" },
+    { price: "2000" },
+    { price: "5000" },
+  ];
 
-  const validateForm = () => {
-    const newErrors = {};
-
-    if (amount <= 0) newErrors.amount = "Donation amount must be greater than 0.";
-    if (!firstName.trim()) newErrors.firstName = "First name is required.";
-    if (!lastName.trim()) newErrors.lastName = "Last name is required.";
-    if (!email.trim() || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email))
-      newErrors.email = "Invalid email address.";
-    if (!mobileNumber.trim() || !/^\d{10}$/.test(mobileNumber))
-      newErrors.mobileNumber = "Mobile number must be 10 digits.";
-    if (!dateOfBirth.trim()) newErrors.dateOfBirth = "Date of birth is required.";
-    if (!streetAddress.trim()) newErrors.streetAddress = "Street address is required.";
-    if (!postalCode.trim() || !/^\d{6}$/.test(postalCode))
-      newErrors.postalCode = "Postal code must be 6 digits.";
-    if (!city.trim()) newErrors.city = "City is required.";
-    if (!state.trim()) newErrors.state = "State is required.";
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (validateForm()) {
-      console.log("Form submitted successfully!");
-      // Submit form logic here
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const dataToSubmit = {
+      donationAmount: donationAmount || customAmount,
+      ...formData,
+      notify,
+    };
+    console.log(dataToSubmit, "heyyy");
+    try {
+      const response = await fetch("/api/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataToSubmit),
+      });
+      const result = await response.json();
+      if (response.ok) {
+        alert("Data submitted successfully");
+      } else {
+        alert("Error in submission");
+      }
+    } catch (error) {
+      console.error("Error submitting data:", error);
+      alert("Something went wrong!");
     }
   };
 
   return (
-    <div className="flex flex-col gap-8 justify-center items-center bg-red-50 w-full p-4 md:w-7/12 rounded-lg overflow-hidden">
-      <h1 className="text-3xl font-bold text-black">Donation Form</h1>
+    <div>
+      {/* <Header /> */}
+      <div className="  sm:py-10">
+        <div className="mx-auto max-w-2xl px-5 lg:max-w-7xl lg:px-8 lg:w-9/12">
+          
+          <form onSubmit={handleSubmit}>
+            <div className="flex flex-col gap-6 ">
+              <div>
+                <h2 className="font-medium py-3 text-balance text-semibold">
+                1.  Choose Donation Value
+                </h2>
+                <div className="-mx-4 flex flex-wrap" data-wow-delay=".15s">
+                  <div className="w-full px-2">
+                    <ul className="flex flex-wrap gap-3 items-center ">
+                      {RUPEES.map((item) => (
+                        <li className="mx-1" key={item.price}>
+                          <a
+                            href="#0"
+                            className={`${
+                              donationAmount === item.price
+                                ? " bg-[#007931] text-white px-4 flex h-11 w-[100px] items-center justify-center rounded-md"
+                                : "flex h-11 w-[100px] items-center justify-center rounded-md hover:bg-[#007931]  bg-opacity-[15%] px-4 text-sm text-body-color transition  hover:bg-opacity-400 hover:text-white"
+                            }`}
+                            onClick={() => setDonationAmount(item.price)}
+                          >
+                            ₹ {item.price}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-      <form onSubmit={(e)=>{handleSubmit(e)}} className="flex flex-col gap-4">
-        {/* Donation Amount */}
-        <div className="flex flex-col gap-2">
-          <label className="text-sm font-semibold">Donation Amount:</label>
-          <input
-            type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            className="rounded-lg outline-0 p-4 border border-slate-100 text-sm text-slate-800"
-          />
-          {errors.amount && <p className="text-red-500 text-xs">{errors.amount}</p>}
-        </div>
+              <div className="mt-5 flex flex-col gap-5 lg:w-8/12">
+                <div>
+                  <label className="">Add Another Value</label>
+                  <input
+                    type="number"
+                    name="customValue"
+                    className="block text-gray-800 w-full py-2 mt-1 bg-transparent border-b  focus:ring-orange-500 focus:border-orange-500 outline-none"
+                    placeholder="Enter amount"
+                    value={customAmount}
+                    onChange={(e) => setCustomAmount(e.target.value)}
+                  />
+                </div>
+                <div className="flex items-center">
+                  <input
+                    id="comments"
+                    name="comments"
+                    type="checkbox"
+                    checked={notify}
+                    onChange={() => setNotify(!notify)}
+                  />
+                  <div className="text-sm w-full">
+                    <p className="text-gray-500 ml-1">
+                      Get notified when someone posts a comment on a posting.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-        {/* Personal Information */}
-        <div className="flex flex-col gap-2">
-          <label className="text-sm font-semibold">Personal Information:</label>
-          <div className="flex flex-row gap-4">
-            <input
-              type="text"
-              placeholder="First name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              className="flex-1 rounded-lg outline-0 p-4 border border-slate-100 text-sm text-slate-800"
-            />
-            <input
-              type="text"
-              placeholder="Last name"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              className="flex-1 rounded-lg outline-0 p-4 border border-slate-100 text-sm text-slate-800"
-            />
-          </div>
-          {errors.firstName && <p className="text-red-500 text-xs">{errors.firstName}</p>}
-          {errors.lastName && <p className="text-red-500 text-xs">{errors.lastName}</p>}
+              <div>
+                <h3 className="text-lg font-semibold  underline-offset-4 py-5">
+                 2. Enter Contact Information
+                </h3>
+                <div className="grid sm:grid-cols-2 grid-cols-1 gap-5 lg:w-9/12">
+                  <div>
+                    <label className="">First Name</label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      className="block text-gray-800 w-full py-2 mt-1 bg-transparent border-b focus:ring-orange-500 focus:border-orange-500 outline-none"
+                      placeholder="Enter Name"
+                    />
+                  </div>
+                  <div>
+                    <label className="">Last Name</label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      className="block text-gray-800 w-full py-2 mt-1 bg-transparent border-b focus:ring-orange-500 focus:border-orange-500 outline-none"
+                      placeholder="Enter Name"
+                    />
+                  </div>
+                  <div>
+                    <label className="">Email</label>
+                    <input
+                      type="text"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="block text-gray-800 w-full py-2 mt-1 bg-transparent border-b focus:ring-orange-500 focus:border-orange-500 outline-none"
+                      placeholder="Enter email"
+                    />
+                  </div>
+                  <div>
+                    <label className="">Mobile</label>
+                    <input
+                      type="text"
+                      name="mobile"
+                      maxLength={10}
+                      value={formData.mobile}
+                      onChange={handleChange}
+                      className="block text-gray-800 w-full py-2 mt-1 bg-transparent border-b focus:ring-orange-500 focus:border-orange-500 outline-none"
+                      placeholder="Enter mobile"
+                    />
+                  </div>
+                </div>
+              </div>
 
-          <input
-            type="email"
-            placeholder="Email address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="rounded-lg outline-0 p-4 border border-slate-100 text-sm text-slate-800"
-          />
-          {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
+              <div>
+                <h3 className="text-lg font-semibold  underline-offset-4 py-5">
+                 3. Enter Billing Information
+                </h3>
+                <div className="grid sm:grid-cols-2 grid-cols-1 gap-5 lg:w-9/12">
+                  <div>
+                    <label className="">Address</label>
+                    <input
+                      type="text"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleChange}
+                      className="block text-gray-800 w-full py-2 mt-1 bg-transparent border-b focus:ring-orange-500 focus:border-orange-500 outline-none"
+                      placeholder="Enter address"
+                    />
+                  </div>
+                  <div>
+                    <label className="">City</label>
+                    <input
+                      type="text"
+                      name="city"
+                      value={formData.city}
+                      onChange={handleChange}
+                      className="block text-gray-800 w-full  py-2 mt-1 bg-transparent border-b focus:ring-orange-500 focus:border-orange-500 outline-none"
+                      placeholder="Enter city"
+                    />
+                  </div>
+                  <div>
+                    <label className="">State</label>
+                    <input
+                      type="text"
+                      name="state"
+                      value={formData.state}
+                      onChange={handleChange}
+                      className="block text-gray-800 w-full py-2 mt-1 bg-transparent border-b focus:ring-orange-500 focus:border-orange-500 outline-none"
+                      placeholder="Enter state"
+                    />
+                  </div>
+                  <div>
+                    <label className="">Pin Code</label>
+                    <input
+                      type="text"
+                      name="pinCode"
+                      maxLength={6}
+                      value={formData.pinCode}
+                      onChange={handleChange}
+                      className="block text-gray-800 w-full text-sm py-2 mt-1 bg-transparent border-b focus:ring-orange-500 focus:border-orange-500 outline-none"
+                      placeholder="Enter pincode"
+                    />
+                  </div>
+                </div>
+              </div>
 
-          <input
-            type="text"
-            placeholder="Mobile Number"
-            value={mobileNumber}
-            onChange={(e) => setMobileNumber(e.target.value)}
-            className="rounded-lg outline-0 p-4 border border-slate-100 text-sm text-slate-800"
-          />
-          {errors.mobileNumber && <p className="text-red-500 text-xs">{errors.mobileNumber}</p>}
-
-          <input
-            type="date"
-            value={dateOfBirth}
-            onChange={(e) => setDateOfBirth(e.target.value)}
-            className="rounded-lg outline-0 p-4 border border-slate-100 text-sm text-slate-800"
-          />
-          {errors.dateOfBirth && <p className="text-red-500 text-xs">{errors.dateOfBirth}</p>}
-        </div>
-
-        {/* Address Information */}
-        <div className="flex flex-col gap-2">
-          <label className="text-sm font-semibold">Address Information:</label>
-          <input
-            type="text"
-            placeholder="Street Address"
-            value={streetAddress}
-            onChange={(e) => setStreetAddress(e.target.value)}
-            className="rounded-lg outline-0 p-4 border border-slate-100 text-sm text-slate-800"
-          />
-          {errors.streetAddress && <p className="text-red-500 text-xs">{errors.streetAddress}</p>}
-
-          <div className="flex flex-row gap-4">
-            <input
-              type="text"
-              placeholder="Postal Code"
-              value={postalCode}
-              onChange={(e) => setPostalCode(e.target.value)}
-              className="flex-1 rounded-lg outline-0 p-4 border border-slate-100 text-sm text-slate-800"
-            />
-            <input
-              type="text"
-              placeholder="City"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              className="flex-1 rounded-lg outline-0 p-4 border border-slate-100 text-sm text-slate-800"
-            />
-          </div>
-          {errors.postalCode && <p className="text-red-500 text-xs">{errors.postalCode}</p>}
-          {errors.city && <p className="text-red-500 text-xs">{errors.city}</p>}
-
-          <input
-            type="text"
-            placeholder="State"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-            className="rounded-lg outline-0 p-4 border border-slate-100 text-sm text-slate-800"
-          />
-          {errors.state && <p className="text-red-500 text-xs">{errors.state}</p>}
-        </div>
-
-        {/* Payment Method */}
-        {/* <div className="flex flex-col gap-2">
-          <label className="text-sm font-semibold">Payment Method:</label>
-          <select
-            value={paymentMethod}
-            onChange={(e) => setPaymentMethod(e.target.value)}
-            className="rounded-lg outline-0 p-4 border border-slate-100 text-sm text-slate-800"
-          >
-            <option value="credit-card">Credit Card</option>
-            <option value="paypal">PayPal</option>
-            <option value="bank-transfer">Bank Transfer</option>
-          </select>
-        </div> */}
-
-        {/* Total Donations and Submit Button */}
-        <div className="flex flex-row justify-between items-center gap-4">
-          <div className="flex flex-col justify-start items-start gap-1">
-            <h2 className="text-sm font-bold text-slate-800">Total Donations</h2>
-            <div className="flex justify-center items-center">
-              <MdCurrencyRupee className="text-red-600" size={20} />
-              <h4 className="text-xl font-extrabold text-red-600">{amount}</h4>
+              <div>
+                <button
+                  type="submit"
+                  className="py-2 transition px-5 bg-green-600 bg-opacity-[25%] rounded-sm hover:bg-opacity-100 hover:text-white"
+                >
+                  Donate
+                </button>
+              </div>
             </div>
-          </div>
-          <Button color="red-600" text="Donate" href="#submit" type="submit" />
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   );
 };
